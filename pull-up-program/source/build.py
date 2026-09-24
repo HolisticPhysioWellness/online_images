@@ -61,6 +61,13 @@ ex("scapular-pull-ups", "Scapular pull-ups (active hang)", "3 sets × 5–8, 2-s
     "Finish with 2 holds of 15–30 seconds in the active position."],
    tip="Your elbows never bend. Only your shoulder blades move. This is the first thing that happens in every pull-up. Keep your toes on a box if your grip needs a break.")
 
+ex("wall-angels-warmup", "Wall angels", "1 set × 8",
+   ["Back of your head, upper back and tailbone on the wall. Start in the goalpost position.",
+    "Breathe in as you slide your arms up into a \"Y\". Keep your ribs down.",
+    "Breathe out as you slide back down to the goalpost. Then start your phase workout."],
+   tip="Overhead prep: it sets your shoulder blades and ribs for hanging. On training days it counts toward your daily wall angels (full instructions on page 2).",
+   img="wall-angels")
+
 ex("band-lat-pulldown", "Band lat pull-down", "3 sets × 10–12",
    ["Loop a band over the pull-up bar. Kneel tall facing the bar, with your ribs down.",
     "Start with your arms reaching up. Pull your elbows down and back toward your ribs until your hands are near your shoulders.",
@@ -146,20 +153,25 @@ def photo(key):
 
 
 CAPS = {
-    "wall-angels": ("Goalpost: breathe out as you lower", "Y: breathe in as you slide up"),
+    "wall-angels": ("① Start: goalpost", "② Finish: breathe in, slide up to a Y"),
     "wall-angels-ribs": ("✓ Ribs down, back near the wall", "✗ Ribs flare, low back arches"),
-    "90-90-breathing": ("Breathe in", "Breathe out: ribs down"),
-    "cat-camel": ("Round up", "Let your back sag"),
-    "scapular-pull-ups": ("Relaxed: shoulders up by ears", "Active: shoulders down, body rises"),
-    "hollow-body": ("Tucked", "Full"),
-    "flexed-arm-hang": ("Step up", "Hold, chin over the bar"),
-    "negative-pull-up": ("① Start: chin over the bar, feet off the box", "② Lower until your arms are straight"),
-    "pull-up": ("Hang", "Pull"),
-    "band-assisted-pull-up": ("Start: knee in the loop, arms straight", "Finish: chin over the bar"),
+    "90-90-breathing": ("① Breathe in", "② Breathe out: ribs down"),
+    "cat-camel": ("① Round up", "② Let it gently sag"),
+    "band-pull-aparts": ("① Start: arms in front", "② Finish: band apart"),
+    "scapular-push-ups": ("① Start: chest sinks", "② Finish: push the floor away"),
+    "dead-bug": ("① Start: arms up, knees at 90°", "② Finish: reach opposite arm and leg"),
+    "scapular-pull-ups": ("① Start: relaxed, shoulders by ears", "② Finish: active, shoulders down"),
+    "band-lat-pulldown": ("① Start: arms reaching up", "② Finish: elbows to ribs"),
+    "inverted-row": ("① Start: arms straight", "② Finish: chest to the bar"),
+    "hollow-body": ("① Tucked: start here", "② Full: progress to this"),
+    "band-assisted-pull-up": ("① Start: knee in the loop, arms straight", "② Finish: chin over the bar"),
+    "flexed-arm-hang": ("① Start: step up on the box", "② Finish: feet off, hold chin over the bar"),
+    "negative-pull-up": ("① Start: chin over the bar, feet off the box", "② Finish: lower until your arms are straight"),
+    "pull-up": ("① Start: active hang", "② Finish: chin over the bar"),
 }
 
 
-CAPS_ONE = {"prone-y-raise": "Top: arms resting · Bottom: arms lifted, thumbs up"}
+CAPS_ONE = {"prone-y-raise": "① Top photo, start: arms resting · ② Bottom photo, finish: arms lifted, thumbs up"}
 
 
 def imgs(key, cls="pair"):
@@ -348,7 +360,7 @@ pages.append(header("Every session · about 10 minutes", "Warm-up",
              + card("90-90-breathing", 1) + card("cat-camel", 2) + card("band-pull-aparts", 3))
 pages.append(header("Warm-up, continued", "Warm-up")
              + card("scapular-push-ups", 4) + card("dead-bug", 5)
-             + '<div class="finish"><b>6 · Wall angels</b> 1 set × 8 (page 2). This is your overhead prep: it sets your shoulder blades and ribs in the position you will hang in. On training days it also counts toward your daily wall angels. Then start your phase workout.</div>')
+             + card("wall-angels-warmup", 6))
 
 # Phase 1
 p1_sum = summary([("Scapular pull-ups + active hang", "3 × 5–8 (2-second hold), then 2 × 15–30 s hang"),

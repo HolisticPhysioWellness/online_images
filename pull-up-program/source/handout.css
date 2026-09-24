@@ -135,10 +135,10 @@ li { margin: 1.5px 0; }
 /* photo cards */
 .photo { background: var(--tint); border-radius: 9px; overflow: hidden; border: 1px solid var(--line); }
 .photo img { width: 100%; height: auto; display: block; }
-.card.photo-card { grid-template-columns: 3.35in 1fr; }
+.card.photo-card { grid-template-columns: 3.25in 1fr; }
 .herofig img { width: 100%; border-radius: 10px; display: block; }
 .wa .photo img, .ribs .photo img { width: 100%; }
-.caps { display: grid; grid-template-columns: 1fr 1fr; font-size: 8pt; font-weight: 600; color: var(--brand-ink); background: #fff; }
+.caps { display: grid; grid-template-columns: 1fr 1fr; font-size: 7.6pt; font-weight: 600; color: var(--brand-ink); background: #fff; }
 .caps span { padding: 3px 6px; text-align: center; border-top: 2px solid var(--gold); }
 .caps span + span { border-left: 1px solid var(--line); }
 .photo.pending a { text-decoration: none; color: inherit; display: block; }
