@@ -55,11 +55,11 @@ ex("dead-bug", "Dead bug", "2 sets × 6 each side",
    easier="Move only your legs, or keep the knee bent as you tap your heel toward the floor.")
 
 ex("scapular-pull-ups", "Scapular pull-ups (active hang)", "3 sets × 5–8, 2-second hold",
-   ["Hang with a full grip, thumbs wrapped around the bar and hands just wider than your shoulders.",
-    "Without bending your elbows, pull your shoulders down away from your ears. Your body will rise a few centimetres.",
-    "Hold for 2 seconds with your ribs down and your legs together slightly in front. Lower with control.",
-    "Finish with 2 active hangs of 15–30 seconds, holding the 'active' position."],
-   tip="Keep your toes on a box if your grip or shoulders need a break.")
+   ["<b>Relaxed hang (left photo):</b> hang from the bar with straight arms and let your shoulders ride up toward your ears.",
+    "<b>Active hang (right photo):</b> keep your arms straight and pull your shoulder blades down into your back pockets. Your shoulders move away from your ears and your whole body rises a few centimetres.",
+    "Hold for 2 seconds, then slowly let your shoulders ride back up. That's 1 rep.",
+    "Finish with 2 holds of 15–30 seconds in the active position."],
+   tip="Your elbows never bend. Only your shoulder blades move. This is the first thing that happens in every pull-up. Keep your toes on a box if your grip needs a break.")
 
 ex("band-lat-pulldown", "Band lat pull-down", "3 sets × 10–12",
    ["Loop a band over the pull-up bar. Kneel tall facing the bar, with your ribs down.",
@@ -140,10 +140,25 @@ def photo(key):
     return f"photos/{key}.jpg" if os.path.exists(p) else None
 
 
+CAPS = {
+    "wall-angels": ("Start: goalpost", "Finish: slide up to a Y"),
+    "wall-angels-ribs": ("✓ Ribs down, back near the wall", "✗ Ribs flare, low back arches"),
+    "90-90-breathing": ("Breathe in", "Breathe out: ribs down"),
+    "cat-camel": ("Round up", "Let your back sag"),
+    "scapular-pull-ups": ("Relaxed: shoulders up by ears", "Active: shoulders down, body rises"),
+    "hollow-body": ("Tucked", "Full"),
+    "flexed-arm-hang": ("Step up", "Hold, chin over the bar"),
+    "negative-pull-up": ("Start at the top", "Lower slowly"),
+    "pull-up": ("Hang", "Pull"),
+}
+
+
 def imgs(key, cls="pair"):
     ph = photo(key)
     if ph:
-        return f'<div class="photo"><img src="{ph}" alt=""></div>'
+        a, b = CAPS.get(key, ("Start", "Finish"))
+        return (f'<div class="photo"><img src="{ph}" alt="">'
+                f'<div class="caps"><span>{a}</span><span>{b}</span></div></div>')
     ps = load(key)
     return f'<div class="{cls}">' + "".join(f'<div class="fig">{p}</div>' for p in ps) + "</div>"
 
