@@ -347,7 +347,7 @@ pages.append(header("Every session · about 10 minutes", "Warm-up",
              + card("90-90-breathing", 1) + card("cat-camel", 2) + card("band-pull-aparts", 3))
 pages.append(header("Warm-up, continued", "Warm-up")
              + card("scapular-push-ups", 4) + card("dead-bug", 5)
-             + '<div class="finish"><b>6 · Wall angels</b> 1 set × 8 (page 2). This is your overhead prep: it sets your shoulder blades and ribs in the position you'll hang in. On training days it also counts toward your daily wall angels. Then start your phase workout.</div>')
+             + '<div class="finish"><b>6 · Wall angels</b> 1 set × 8 (page 2). This is your overhead prep: it sets your shoulder blades and ribs in the position you will hang in. On training days it also counts toward your daily wall angels. Then start your phase workout.</div>')
 
 # Phase 1
 p1_sum = summary([("Scapular pull-ups + active hang", "3 × 5–8 (2-second hold), then 2 × 15–30 s hang"),
