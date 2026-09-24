@@ -157,9 +157,15 @@ CAPS = {
 }
 
 
+CAPS_ONE = {"prone-y-raise": "Top: arms resting · Bottom: arms lifted, thumbs up"}
+
+
 def imgs(key, cls="pair"):
     ph = photo(key)
     if ph:
+        if key in CAPS_ONE:
+            return (f'<div class="photo"><img src="{ph}" alt="">'
+                    f'<div class="caps one"><span>{CAPS_ONE[key]}</span></div></div>')
         a, b = CAPS.get(key, ("Start", "Finish"))
         return (f'<div class="photo"><img src="{ph}" alt="">'
                 f'<div class="caps"><span>{a}</span><span>{b}</span></div></div>')

@@ -3,7 +3,7 @@
 A 12-week client handout from Holistic Physiotherapy & Wellness. It's for clients who can hang from a bar but can't do a pull-up yet. The program runs 2 sessions a week and uses bodyweight, a pull-up bar and resistance bands.
 
 - `Road-to-Your-First-Pull-Up.pdf`: the printable 11-page handout (Letter size).
-- `images/png/`, `images/svg/`: the start and finish drawing for each exercise, for use on the website or in JaneApp.
+- `images/`: the real-person start/finish photo for each exercise (AI-generated in Canva), for use on the website or in JaneApp.
 - `source/`: the code that generates the drawings and the PDF.
 
 ## Program outline

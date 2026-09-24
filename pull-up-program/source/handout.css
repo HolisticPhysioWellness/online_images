@@ -146,3 +146,4 @@ li { margin: 1.5px 0; }
 .ph-box span { display: flex; align-items: center; justify-content: center; text-align: center; padding: 10px; font-weight: 600; font-size: 9pt; color: var(--brand-ink); }
 .ph-box span + span { border-left: 1px dashed var(--teal-light); }
 .ph-link { background: var(--brand-ink); color: #fff; text-align: center; font-size: 8pt; font-weight: 600; padding: 4px; }
+.caps.one { grid-template-columns: 1fr; }
