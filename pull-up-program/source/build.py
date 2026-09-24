@@ -135,6 +135,10 @@ def aspect(svg):
     return float(vb[2]) / float(vb[3])
 
 
+import json
+PHOTO_IDS = {k: v for k, v in json.load(open(os.path.join(HERE, "photos.json"))).items() if not k.startswith("_")}
+
+
 def photo(key):
     p = os.path.join(HERE, "photos", f"{key}.jpg")
     return f"photos/{key}.jpg" if os.path.exists(p) else None
@@ -159,6 +163,11 @@ def imgs(key, cls="pair"):
         a, b = CAPS.get(key, ("Start", "Finish"))
         return (f'<div class="photo"><img src="{ph}" alt="">'
                 f'<div class="caps"><span>{a}</span><span>{b}</span></div></div>')
+    if key in PHOTO_IDS:
+        a, b = CAPS.get(key, ("Start", "Finish"))
+        url = f"https://www.canva.com/M/{PHOTO_IDS[key]}"
+        return (f'<div class="photo pending"><a href="{url}"><div class="ph-box"><span>{a}</span><span>{b}</span></div>'
+                f'<div class="ph-link">Photo: view in Canva ↗</div></a></div>')
     ps = load(key)
     return f'<div class="{cls}">' + "".join(f'<div class="fig">{p}</div>' for p in ps) + "</div>"
 
@@ -174,7 +183,7 @@ def card(key, num=None, dose=None):
     if e["harder"]:
         extra += f'<p class="note"><b>Harder:</b> {e["harder"]}</p>'
     n = f'<span class="num">{num}</span>' if num else ""
-    if photo(e["img"]):
+    if photo(e["img"]) or e["img"] in PHOTO_IDS:
         return f'''<section class="card photo-card">
   {imgs(e["img"])}
   <div class="txt">
@@ -248,7 +257,7 @@ pages.append(f'''
       <div><span>Start date</span></div><div><span>Target test date</span></div>
     </div>
   </div>
-  <div class="herofig">{('<img src="photos/pull-up.jpg" alt="">' if photo("pull-up") else load("pull-up")[1])}</div>
+  <div class="herofig">{('<img src="photos/pull-up.jpg" alt="">' if photo("pull-up") else imgs("pull-up"))}</div>
 </div>
 
 <div class="grid3">
@@ -338,11 +347,11 @@ p1_sum = summary([("Scapular pull-ups + active hang", "3 × 5–8 (2-second hold
                   ("Inverted row", "3 × 6–10"), ("Hollow body hold (tucked)", "3 × 15–30 s")])
 pages.append(header("Phase 1 · Weeks 1–4", "Foundation",
                      "Build shoulder blade control, grip endurance and basic pulling strength.")
-             + p1_sum + card("scapular-pull-ups", "A") + card("band-lat-pulldown", "B") + card("prone-y-raise", "C"))
+             + p1_sum + card("scapular-pull-ups", "A") + card("band-lat-pulldown", "B")
+             + gate(["3 × 8 scapular pull-ups with 2-second holds", "a 30-second active hang",
+                   "3 × 10 inverted rows", "a 30-second tucked hollow hold"]))
 pages.append(header("Phase 1 · Weeks 1–4", "Foundation, continued")
-             + card("inverted-row", "D") + card("hollow-body", "E"))
-pages[-1] += gate(["3 × 8 scapular pull-ups with 2-second holds", "a 30-second active hang",
-                   "3 × 10 inverted rows", "a 30-second tucked hollow hold"])
+             + card("prone-y-raise", "C") + card("inverted-row", "D") + card("hollow-body", "E"))
 
 # Phase 2
 p2_sum = summary([("Band-assisted pull-up", "3 × 4–6"), ("Flexed-arm hang", "3 × 10–20 s"),
