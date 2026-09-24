@@ -147,3 +147,4 @@ li { margin: 1.5px 0; }
 .ph-box span + span { border-left: 1px dashed var(--teal-light); }
 .ph-link { background: var(--brand-ink); color: #fff; text-align: center; font-size: 8pt; font-weight: 600; padding: 4px; }
 .caps.one { grid-template-columns: 1fr; }
+.finish.primer { margin: 0 0 4px; padding: 6px 12px; }

@@ -86,11 +86,11 @@ ex("hollow-body", "Hollow body hold", "3 sets × 15–30 seconds",
    harder="Straighten one leg, then both. Then take your arms overhead ('Full').")
 
 ex("band-assisted-pull-up", "Band-assisted pull-up", "3 sets × 4–6",
-   ["Loop a strong band over the bar. Kneel into the loop with one knee (or put your foot in it).",
+   ["Loop a strong band over the bar and step up on a box. Put one foot in the loop (most help) or kneel into it with one knee (less help).",
     "Start from an active hang: shoulders down, ribs down.",
     "Pull your elbows down to your ribs until your chin clears the bar. Lower over 3 seconds.",
-    "Choose a band where the last rep is hard but still clean."],
-   tip="Move to a lighter band once you can do 3 × 6 with good form.")
+    "To finish, step back onto the box before you take your foot or knee out of the band."],
+   tip="Choose the set-up where the last rep is hard but still clean. Progress in this order: foot in the loop → knee in the loop → next lighter band. Move one step once you can do 3 × 6 with good form.")
 
 ex("flexed-arm-hang", "Flexed-arm hang", "3 sets × 10–20 seconds",
    ["Step up on a sturdy box or chair so your chin is above the bar.",
@@ -102,11 +102,12 @@ ex("negative-pull-up", "Negative (lowering) pull-up", "3 sets × 3, lowering ove
    ["Start at the top (right photo): step up on a box so your chin is over the bar.",
     "Lift your feet and lower yourself slowly, counting, until your arms are straight (left photo). Keep your shoulders 'active' at the bottom.",
     "Step back up for the next rep. Don't jump up from the bottom."],
-   tip="Slow lowering (eccentric) work builds strength quickly. Expect some muscle soreness in the first week.")
+   tip="Slow lowering (eccentric) work builds strength quickly. Expect some muscle soreness in the first week.",
+   easier="If you drop in under 2 seconds, do the lowering with your knee in a band until you can control it.")
 
-ex("slow-negatives", "Slow negatives with pauses", "3 sets × 2, lowering over 6–8 seconds",
+ex("slow-negatives", "Slow negatives with pauses", "3 sets × 2, 8–10 seconds per rep",
    ["Start at the top as for negatives.",
-    "Lower slowly, pausing for 2 seconds at the top, at halfway (elbows at 90°) and just before your arms are straight.",
+    "Lower slowly, pausing for 2 seconds at the top, at halfway (elbows at 90°) and just before your arms are straight. Each rep takes 8–10 seconds from top to bottom.",
     "Step back up between reps."],
    img="negative-pull-up")
 
@@ -114,7 +115,7 @@ ex("pull-up", "Pull-up attempts", "3–5 single attempts, 2–3 minutes' rest",
    ["Do these straight after your warm-up, while you are fresh.",
     "From an active hang, pull your elbows down to your ribs and drive your chest toward the bar.",
     "If you don't reach the bar, pull as high as you can, hold for 2 seconds, then lower slowly. That still counts as training."],
-   tip="Test day: in week 12 (or once you can hold a flexed-arm hang for 30 s and lower over 8 s), rest well, warm up, and give it 1–2 attempts.")
+   tip="Test day: in week 12, or once you pass the test-day checklist on page 10. Rest well the day before, warm up, and give it 1–2 attempts.")
 
 # --------------------------------------------------------------------------
 # Rendering helpers
@@ -238,8 +239,8 @@ def summary(rows):
     return f'<table class="sum"><thead><tr><th>Exercise</th><th>Sets × reps / time</th></tr></thead><tbody>{r}</tbody></table>'
 
 
-def gate(items):
-    return ('<div class="gate"><b>Ready for the next phase when you can do:</b><ul>'
+def gate(items, title="Ready for the next phase when you can do:"):
+    return (f'<div class="gate"><b>{title}</b><ul>'
             + "".join(f"<li>{i}</li>" for i in items) + "</ul></div>")
 
 
@@ -361,29 +362,35 @@ pages.append(header("Phase 1 · Weeks 1–4", "Foundation, continued")
              + card("prone-y-raise", "C") + card("inverted-row", "D") + card("hollow-body", "E"))
 
 # Phase 2
-p2_sum = summary([("Band-assisted pull-up", "3 × 4–6"), ("Flexed-arm hang", "3 × 10–20 s"),
-                  ("Negative pull-up", "3 × 3 (3–5 s lower)"), ("Inverted row, legs straight", "3 × 8–10"),
-                  ("Hollow body hold, legs straighter", "3 × 20–30 s")])
+PRIMER = '<div class="finish primer"><b>Start with an active hang primer:</b> 2 × 20 seconds in the active position from Phase 1 (page 5), then begin exercise A.</div>'
+p2_sum = summary([("Active hang primer", "2 × 20 s"), ("Negative pull-up", "3 × 3 (3–5 s lower)"),
+                  ("Flexed-arm hang", "3 × 10–20 s"), ("Band-assisted pull-up", "3 × 4–6"),
+                  ("Inverted row, legs straight", "3 × 8–10"), ("Hollow body hold, legs straighter", "3 × 20–30 s")])
 pages.append(header("Phase 2 · Weeks 5–8", "Build the pull",
-                     "Practise the whole pull-up path with help from a band, and build strength at the top and on the way down.")
-             + p2_sum + card("band-assisted-pull-up", "A") + card("flexed-arm-hang", "B"))
+                     "Build strength at the top and on the way down first, while you're fresh. Then practise the whole pull-up path with a band.")
+             + p2_sum + PRIMER + card("negative-pull-up", "A") + card("flexed-arm-hang", "B"))
 pages.append(header("Phase 2 · Weeks 5–8", "Build the pull, continued")
-             + card("negative-pull-up", "C")
+             + card("band-assisted-pull-up", "C")
              + '<div class="finish"><b>D · Inverted row</b> 3 × 8–10 with legs straight (page 6). &nbsp; <b>E · Hollow body hold</b> 3 × 20–30 s, straighten your legs as you are able (page 6).</div>'
              + gate(["a 20-second flexed-arm hang", "3 × 3 negatives, lowering over 5 seconds",
                      "3 × 6 band-assisted pull-ups with a medium band"]))
 
 # Phase 3
-p3_sum = summary([("Pull-up attempts", "3–5 singles, 2–3 min rest"), ("Slow negatives with pauses", "3 × 2 (6–8 s lower)"),
-                  ("Light band-assisted pull-up", "3 × 5–6"), ("Inverted row", "3 × 10"),
-                  ("Hollow body hold (full)", "3 × 30 s")])
+p3_sum = summary([("Active hang primer", "2 × 20 s"), ("Pull-up attempts", "3–5 singles, 2–3 min rest"),
+                  ("Slow negatives with pauses", "3 × 2 (8–10 s each)"), ("Band-assisted pull-up, less help", "3 × 5–6"),
+                  ("Hollow body hold (full)", "3 × 30 s"), ("Inverted row, 2-second pause", "3 × 10"),
+                  ("Flexed-arm hang", "2 × 20–30 s")])
 pages.append(header("Phase 3 · Weeks 9–12", "Your first pull-up",
                      "Less help, more control. Keep every rep clean. Grinding out ugly reps won't get you there faster.")
-             + p3_sum + card("pull-up", "A") + card("slow-negatives", "B"))
+             + p3_sum + PRIMER + card("pull-up", "A") + card("slow-negatives", "B"))
 pages.append(header("Phase 3 · Weeks 9–12", "Your first pull-up, continued")
-             + card("band-assisted-pull-up", "C", "3 sets × 5–6 with your lightest band. Go down a band every 1–2 weeks.")
+             + card("band-assisted-pull-up", "C", "3 sets × 5–6, starting one step less help than you ended Phase 2. Move down a step once 3 × 6 feels clean (usually every 1–2 weeks).")
              + card("hollow-body", "D", "3 sets × 30 seconds, working toward the full position")
-             + '<div class="finish"><b>E · Inverted row</b> 3 × 10 with legs straight (page 6). &nbsp; <b>Next goal after your first pull-up:</b> 3 sets of 1–2 reps, then work toward 3 reps in a row.</div>')
+             + '<div class="finish"><b>E · Inverted row</b> 3 × 10, legs straight, with a 2-second pause at the top (page 6). &nbsp; <b>F · Flexed-arm hang</b> 2 × 20–30 seconds (page 7).</div>'
+             + gate(["a 30-second flexed-arm hang", "a slow negative taking 8–10 seconds, with control",
+                     "3 × 6 band-assisted pull-ups with your lightest band, knee in the loop", "a 30-second full hollow hold"],
+                    "Ready for test day when you can do:")
+             + '<div class="finish"><b>After your first pull-up:</b> do 3 sets of 1–2 reps, then work toward 3 reps in a row.</div>')
 
 # Log + references
 rows = "".join(f"<tr><td>{w}</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>" for w in range(1, 13))
