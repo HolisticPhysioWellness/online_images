@@ -26,10 +26,14 @@
 | Warm neutral (print) | Stone Taupe | #C8BFB3 |
 
 - Fonts: Montserrat Bold/Semi-Bold for headings; Montserrat Regular/Light for body text; Raleway Medium Italic for accents and quotes; Brittney (the logo script) sparingly.
-- Logo: use the official horizontal logo file `pull-up-program/source/assets/logo-horizontal.png` (the tree in a gold double circle, with HOLISTIC and *Physiotherapy & Wellness* in script). Never rebuild the wordmark with fonts. Canva's brand kit also holds a 10th Anniversary version; use it only when asked.
+- Logo: use the official horizontal logo file `handouts/pull-up-program/source/assets/logo-horizontal.png` (the tree in a gold double circle, with HOLISTIC and *Physiotherapy & Wellness* in script). Never rebuild the wordmark with fonts. Canva's brand kit also holds a 10th Anniversary version; use it only when asked.
 - Digital: teals + Primary Gold. Print: Rich Charcoal Black on Soft White for contrast.
 
+## Filing
+- Each client handout gets its own folder under `handouts/<topic>/`: the PDF at the top level (lowercase, hyphenated, with year-month, e.g. `road-to-your-first-pull-up-2026-09.pdf`), plus `images/`, `source/` and a README.
+
 ## Existing work
-- `pull-up-program/`: 12-week "Road to Your First Pull-Up" handout (PDF, images, and build sources in `source/`).
-  - Photos live in `source/photos/<key>.jpg` (copies in `images/`). Canva media IDs are in `source/photos.json`.
-  - To download Canva images at print quality: create a temporary design, add one 1456×1088 page per image, `insert_fill` each image full-page, then download the `thumbnail_urls` that `edit-design` returns (600 px wide, on export-download.canva.com). Cancel the transaction afterwards; nothing needs saving.
+- `handouts/pull-up-program/`: 12-week "Road to Your First Pull-Up" handout.
+  - Photos live in `source/photos/<key>.jpg` (copies in `images/`). Canva media IDs are in `source/photos.json`. Rebuild with `source/build.sh`.
+  - To download Canva images at print quality: open the Canva design "HPW pull-up photo export", add one 1456×1088 page per image, `insert_fill` each image full-page, then download the `thumbnail_urls` that `edit-design` returns (600 px wide, on export-download.canva.com). Cancel the transaction afterwards; nothing needs saving.
+- `handouts/seed-cycling/` (on branch `claude/nifty-davinci-njt3qp`): one-page seed cycling chart.
