@@ -122,7 +122,7 @@ ex("pull-up", "Pull-up attempts", "3–5 single attempts, 2–3 minutes' rest",
    ["Do these after the band work and negatives have warmed up the movement. Rest a full 2–3 minutes first so each attempt starts fresh.",
     "From an active hang, pull your elbows down to your ribs and drive your chest toward the bar.",
     "If you don't reach the bar, pull as high as you can, hold for 2 seconds, then lower slowly. That still counts as training."],
-   tip="Test day: in week 12, or once you pass the test-day checklist on page 10. Rest well the day before, warm up, and give it 1–2 attempts.")
+   tip="Test day: in week 12, or once you pass the test-day checklist on page 11. Rest well the day before, warm up, and give it 1–2 attempts.")
 
 # --------------------------------------------------------------------------
 # Rendering helpers
@@ -384,7 +384,8 @@ pages.append(header("Phase 2 · Weeks 5–8", "Build the pull",
              + p2_sum + PRIMER + card("negative-pull-up", "A") + card("flexed-arm-hang", "B"))
 pages.append(header("Phase 2 · Weeks 5–8", "Build the pull, continued")
              + card("band-assisted-pull-up", "C")
-             + '<div class="finish"><b>D · Inverted row</b> 3 × 8–10 with legs straight (page 6). &nbsp; <b>E · Hollow body hold</b> 3 × 20–30 s, straighten your legs as you are able (page 6).</div>'
+             + card("inverted-row", "D", "3 sets × 8–10 with legs straight")
+             + card("hollow-body", "E", "3 sets × 20–30 seconds, straightening your legs as you are able")
              + gate(["a 20-second flexed-arm hang", "3 × 3 negatives, lowering over 5 seconds",
                      "3 × 6 band-assisted pull-ups with a medium band"]))
 
@@ -399,8 +400,10 @@ pages.append(header("Phase 3 · Weeks 9–12", "Your first pull-up",
              + card("slow-negatives", "B"))
 pages.append(header("Phase 3 · Weeks 9–12", "Your first pull-up, continued")
              + card("pull-up", "C")
-             + card("hollow-body", "D", "3 sets × 30 seconds, working toward the full position")
-             + '<div class="finish"><b>E · Inverted row</b> 3 × 10, legs straight, with a 2-second pause at the top (page 6). &nbsp; <b>F · Flexed-arm hang</b> 2 × 20–30 seconds (page 7).</div>'
+             + card("hollow-body", "D", "3 sets × 30 seconds, working toward the full position"))
+pages.append(header("Phase 3 · Weeks 9–12", "Your first pull-up, continued")
+             + card("inverted-row", "E", "3 sets × 10, legs straight, with a 2-second pause at the top")
+             + card("flexed-arm-hang", "F", "2 sets × 20–30 seconds")
              + gate(["a 30-second flexed-arm hang", "a slow negative taking 8–10 seconds, with control",
                      "3 × 6 band-assisted pull-ups with your lightest band, knee in the loop", "a 30-second full hollow hold"],
                     "Ready for test day when you can do:")

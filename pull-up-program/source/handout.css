@@ -87,7 +87,7 @@ li { margin: 1.5px 0; }
 .safety ul { columns: 2; column-gap: 20px; }
 
 /* exercise card */
-.card { display: grid; grid-template-columns: 3.1in 1fr; gap: 16px; padding: 8px 0; border-top: 1px solid var(--line); break-inside: avoid; align-items: center; }
+.card { display: grid; grid-template-columns: 3.1in 1fr; gap: 16px; padding: 6px 0; border-top: 1px solid var(--line); break-inside: avoid; align-items: center; }
 .pair { display: flex; gap: 6px; align-items: stretch; }
 .fig { flex: 1; background: var(--tint); border-radius: 9px; padding: 6px; display: flex; align-items: center; justify-content: center; }
 .fig svg { width: 100%; height: auto; max-height: 2.45in; display: block; }
@@ -107,7 +107,7 @@ li { margin: 1.5px 0; }
 .sum th { text-align: left; background: var(--brand-ink); color: #fff; padding: 4px 8px; font-size: 8.5pt; text-transform: uppercase; letter-spacing: .06em; }
 .sum td { padding: 2.5px 8px; border-bottom: 1px solid var(--line); }
 .sum tr:nth-child(even) td { background: var(--tint); }
-.gate { margin-top: 10px; border: 2px dashed var(--gold); border-radius: 8px; padding: 7px 12px; background: #fbf7f0; }
+.gate { margin-top: 6px; border: 2px dashed var(--gold); border-radius: 8px; padding: 5px 12px; background: #fbf7f0; }
 .gate b { color: var(--brand-ink); }
 .gate ul { columns: 2; margin-top: 4px; }
 .finish { margin-top: 8px; background: var(--tint); border-radius: 8px; padding: 8px 12px; font-size: 9.5pt; }
@@ -135,7 +135,7 @@ li { margin: 1.5px 0; }
 /* photo cards */
 .photo { background: var(--tint); border-radius: 9px; overflow: hidden; border: 1px solid var(--line); }
 .photo img { width: 100%; height: auto; display: block; }
-.card.photo-card { grid-template-columns: 3.25in 1fr; }
+.card.photo-card { grid-template-columns: 3.1in 1fr; }
 .herofig img { width: 100%; border-radius: 10px; display: block; }
 .wa .photo img, .ribs .photo img { width: 100%; }
 .caps { display: grid; grid-template-columns: 1fr 1fr; font-size: 7.6pt; font-weight: 600; color: var(--brand-ink); background: #fff; }
