@@ -31,3 +31,8 @@
 
 ## Existing work
 - `pull-up-program/`: 12-week "Road to Your First Pull-Up" handout (PDF, images, and build sources in `source/`).
+  - **Open task:** put the real photos into the handout. The Canva media IDs are in `source/photos.json`.
+    1. Check that `media.canva.com` and `export-download.canva.com` are reachable.
+    2. For each ID, get the full-size image: create a Canva design containing the image and export it as JPG/PNG (the download URL is on export-download.canva.com), or use another full-size route. Save each as `source/photos/<key>.jpg`.
+    3. Run `source/build.sh`. `build.py` uses `photos/<key>.jpg` automatically and falls back to Canva-link placeholders.
+    4. Check every page (no overflow; photos show correct form), then commit and push to the working branch.
