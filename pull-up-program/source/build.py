@@ -99,8 +99,8 @@ ex("flexed-arm-hang", "Flexed-arm hang", "3 sets × 10–20 seconds",
    tip="Keep breathing. Don't hold your breath.")
 
 ex("negative-pull-up", "Negative (lowering) pull-up", "3 sets × 3, lowering over 3–5 seconds",
-   ["Step up to the top position with your chin over the bar.",
-    "Lift your feet and lower yourself slowly, counting, until your arms are straight and your shoulders are still 'active'.",
+   ["Start at the top (right photo): step up on a box so your chin is over the bar.",
+    "Lift your feet and lower yourself slowly, counting, until your arms are straight (left photo). Keep your shoulders 'active' at the bottom.",
     "Step back up for the next rep. Don't jump up from the bottom."],
    tip="Slow lowering (eccentric) work builds strength quickly. Expect some muscle soreness in the first week.")
 
@@ -148,7 +148,7 @@ CAPS = {
     "scapular-pull-ups": ("Relaxed: shoulders up by ears", "Active: shoulders down, body rises"),
     "hollow-body": ("Tucked", "Full"),
     "flexed-arm-hang": ("Step up", "Hold, chin over the bar"),
-    "negative-pull-up": ("Start at the top", "Lower slowly"),
+    "negative-pull-up": ("② Finish: lower until arms are straight", "① Start: chin over the bar"),
     "pull-up": ("Hang", "Pull"),
 }
 
