@@ -99,9 +99,9 @@ ex("flexed-arm-hang", "Flexed-arm hang", "3 sets × 10–20 seconds",
    tip="Keep breathing. Don't hold your breath.")
 
 ex("negative-pull-up", "Negative (lowering) pull-up", "3 sets × 3, lowering over 3–5 seconds",
-   ["Start at the top (right photo): step up on a box so your chin is over the bar.",
-    "Lift your feet and lower yourself slowly, counting, until your arms are straight (left photo). Keep your shoulders 'active' at the bottom.",
-    "Step back up for the next rep. Don't jump up from the bottom."],
+   ["Start at the top (left photo): step up on a box so your chin is over the bar.",
+    "Lift your feet and lower yourself slowly, counting, until your arms are straight (right photo). Keep your shoulders 'active' at the bottom.",
+    "Step down onto the box, then step back up for the next rep. Don't jump up from the bottom."],
    tip="Slow lowering (eccentric) work builds strength quickly. Expect some muscle soreness in the first week.",
    easier="If you drop in under 2 seconds, do the lowering with your knee in a band until you can control it.")
 
@@ -112,7 +112,7 @@ ex("slow-negatives", "Slow negatives with pauses", "3 sets × 2, 8–10 seconds 
    img="negative-pull-up")
 
 ex("pull-up", "Pull-up attempts", "3–5 single attempts, 2–3 minutes' rest",
-   ["Do these straight after your warm-up, while you are fresh.",
+   ["Do these after the band work and negatives have warmed up the movement. Rest a full 2–3 minutes first so each attempt starts fresh.",
     "From an active hang, pull your elbows down to your ribs and drive your chest toward the bar.",
     "If you don't reach the bar, pull as high as you can, hold for 2 seconds, then lower slowly. That still counts as training."],
    tip="Test day: in week 12, or once you pass the test-day checklist on page 10. Rest well the day before, warm up, and give it 1–2 attempts.")
@@ -153,7 +153,7 @@ CAPS = {
     "scapular-pull-ups": ("Relaxed: shoulders up by ears", "Active: shoulders down, body rises"),
     "hollow-body": ("Tucked", "Full"),
     "flexed-arm-hang": ("Step up", "Hold, chin over the bar"),
-    "negative-pull-up": ("② Finish: lower until arms are straight", "① Start: chin over the bar"),
+    "negative-pull-up": ("① Start: chin over the bar, feet off the box", "② Lower until your arms are straight"),
     "pull-up": ("Hang", "Pull"),
 }
 
@@ -376,15 +376,16 @@ pages.append(header("Phase 2 · Weeks 5–8", "Build the pull, continued")
                      "3 × 6 band-assisted pull-ups with a medium band"]))
 
 # Phase 3
-p3_sum = summary([("Active hang primer", "2 × 20 s"), ("Pull-up attempts", "3–5 singles, 2–3 min rest"),
-                  ("Slow negatives with pauses", "3 × 2 (8–10 s each)"), ("Band-assisted pull-up, less help", "3 × 5–6"),
+p3_sum = summary([("Active hang primer", "2 × 20 s"), ("Band-assisted pull-up, less help", "3 × 5–6"),
+                  ("Slow negatives with pauses", "3 × 2 (8–10 s each)"), ("Pull-up attempts", "3–5 singles, 2–3 min rest"),
                   ("Hollow body hold (full)", "3 × 30 s"), ("Inverted row, 2-second pause", "3 × 10"),
                   ("Flexed-arm hang", "2 × 20–30 s")])
 pages.append(header("Phase 3 · Weeks 9–12", "Your first pull-up",
                      "Less help, more control. Keep every rep clean. Grinding out ugly reps won't get you there faster.")
-             + p3_sum + PRIMER + card("pull-up", "A") + card("slow-negatives", "B"))
+             + p3_sum + PRIMER + card("band-assisted-pull-up", "A", "3 sets × 5–6, one step less help than Phase 2. Move down a step once 3 × 6 feels clean.")
+             + card("slow-negatives", "B"))
 pages.append(header("Phase 3 · Weeks 9–12", "Your first pull-up, continued")
-             + card("band-assisted-pull-up", "C", "3 sets × 5–6, starting one step less help than you ended Phase 2. Move down a step once 3 × 6 feels clean (usually every 1–2 weeks).")
+             + card("pull-up", "C")
              + card("hollow-body", "D", "3 sets × 30 seconds, working toward the full position")
              + '<div class="finish"><b>E · Inverted row</b> 3 × 10, legs straight, with a 2-second pause at the top (page 6). &nbsp; <b>F · Flexed-arm hang</b> 2 × 20–30 seconds (page 7).</div>'
              + gate(["a 30-second flexed-arm hang", "a slow negative taking 8–10 seconds, with control",
