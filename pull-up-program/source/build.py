@@ -119,7 +119,7 @@ ex("slow-negatives", "Slow negatives with pauses", "3 sets × 2, 8–10 seconds 
    img="negative-pull-up")
 
 ex("pull-up", "Pull-up attempts", "3–5 single attempts, 2–3 minutes' rest",
-   ["Do these after the band work and negatives have warmed up the movement. Rest a full 2–3 minutes first so each attempt starts fresh.",
+   ["Do these first, right after the primer and your easy band set, while you are fresh. Rest 2–3 minutes between attempts.",
     "From an active hang, pull your elbows down to your ribs and drive your chest toward the bar.",
     "If you don't reach the bar, pull as high as you can, hold for 2 seconds, then lower slowly. That still counts as training."],
    tip="Test day: in week 12, or once you pass the test-day checklist on page 11. Rest well the day before, warm up, and give it 1–2 attempts.")
@@ -168,10 +168,11 @@ CAPS = {
     "flexed-arm-hang": ("① Start: step up on the box", "② Finish: feet off, hold chin over the bar"),
     "negative-pull-up": ("① Start: chin over the bar, feet off the box", "② Finish: lower until your arms are straight"),
     "pull-up": ("① Start: active hang", "② Finish: chin over the bar"),
+    "prone-y-raise": ("① Start: arms resting, thumbs up", "② Finish: arms lift, chest stays down"),
 }
 
 
-CAPS_ONE = {"prone-y-raise": "① Top photo, start: arms resting · ② Bottom photo, finish: arms lifted, thumbs up"}
+CAPS_ONE = {}
 
 
 def imgs(key, cls="pair"):
@@ -357,22 +358,22 @@ pages.append(header("Daily posture exercise", "Wall angels",
 # 3-4 - warm-up
 pages.append(header("Every session · about 10 minutes", "Warm-up",
                      "Do these in order before every workout. Finish with 1 set of 8 wall angels.")
-             + card("90-90-breathing", 1) + card("cat-camel", 2) + card("band-pull-aparts", 3))
+             + card("90-90-breathing", 1) + card("dead-bug", 2) + card("cat-camel", 3))
 pages.append(header("Warm-up, continued", "Warm-up")
-             + card("scapular-push-ups", 4) + card("dead-bug", 5)
+             + card("scapular-push-ups", 4) + card("band-pull-aparts", 5)
              + card("wall-angels-warmup", 6))
 
 # Phase 1
 p1_sum = summary([("Scapular pull-ups + active hang", "3 × 5–8 (2-second hold), then 2 × 15–30 s hang"),
-                  ("Band lat pull-down", "3 × 10–12"), ("Prone Y raise", "2 × 10 (2-second hold)"),
-                  ("Inverted row", "3 × 6–10"), ("Hollow body hold (tucked)", "3 × 15–30 s")])
+                  ("Inverted row", "3 × 6–10"), ("Band lat pull-down", "3 × 10–12"),
+                  ("Prone Y raise", "2 × 10 (2-second hold)"), ("Hollow body hold (tucked)", "3 × 15–30 s")])
 pages.append(header("Phase 1 · Weeks 1–4", "Foundation",
                      "Build shoulder blade control, grip endurance and basic pulling strength.")
-             + p1_sum + card("scapular-pull-ups", "A") + card("band-lat-pulldown", "B")
+             + p1_sum + card("scapular-pull-ups", "A") + card("inverted-row", "B")
              + gate(["3 × 8 scapular pull-ups with 2-second holds", "a 30-second active hang",
                    "3 × 10 inverted rows", "a 30-second tucked hollow hold"]))
 pages.append(header("Phase 1 · Weeks 1–4", "Foundation, continued")
-             + card("prone-y-raise", "C") + card("inverted-row", "D") + card("hollow-body", "E"))
+             + card("band-lat-pulldown", "C") + card("prone-y-raise", "D") + card("hollow-body", "E"))
 
 # Phase 2
 PRIMER = '<div class="finish primer"><b>Start with an active hang primer:</b> 2 × 20 seconds in the active position from Phase 1 (page 5), then begin exercise A.</div>'
@@ -390,20 +391,21 @@ pages.append(header("Phase 2 · Weeks 5–8", "Build the pull, continued")
                      "3 × 6 band-assisted pull-ups with a medium band"]))
 
 # Phase 3
-p3_sum = summary([("Active hang primer", "2 × 20 s"), ("Band-assisted pull-up, less help", "3 × 5–6"),
-                  ("Slow negatives with pauses", "3 × 2 (8–10 s each)"), ("Pull-up attempts", "3–5 singles, 2–3 min rest"),
-                  ("Hollow body hold (full)", "3 × 30 s"), ("Inverted row, 2-second pause", "3 × 10"),
-                  ("Flexed-arm hang", "2 × 20–30 s")])
+PRIMER3 = ('<div class="finish primer"><b>Start with an active hang primer</b> (2 × 20 seconds, page 5), then <b>1 easy warm-up set</b> '
+           'of 3 band-assisted pull-ups with one step more help than your work sets. Rest 2 minutes, then begin exercise A.</div>')
+p3_sum = summary([("Active hang primer + 1 easy band set", "2 × 20 s, then 1 × 3"), ("Pull-up attempts", "3–5 singles, 2–3 min rest"),
+                  ("Slow negatives with pauses", "3 × 2 (8–10 s each)"), ("Band-assisted pull-up, less help", "3 × 5–6"),
+                  ("Inverted row, 2-second pause", "3 × 10"), ("Flexed-arm hang", "2 × 20–30 s"),
+                  ("Hollow body hold (full)", "3 × 30 s")])
 pages.append(header("Phase 3 · Weeks 9–12", "Your first pull-up",
-                     "Less help, more control. Keep every rep clean. Grinding out ugly reps won't get you there faster.")
-             + p3_sum + PRIMER + card("band-assisted-pull-up", "A", "3 sets × 5–6, one step less help than Phase 2. Move down a step once 3 × 6 feels clean.")
-             + card("slow-negatives", "B"))
+                     "Your most important work comes first, while you're fresh. Keep every rep clean. Grinding out ugly reps won't get you there faster.")
+             + p3_sum + PRIMER3 + card("pull-up", "A") + card("slow-negatives", "B"))
 pages.append(header("Phase 3 · Weeks 9–12", "Your first pull-up, continued")
-             + card("pull-up", "C")
-             + card("hollow-body", "D", "3 sets × 30 seconds, working toward the full position"))
+             + card("band-assisted-pull-up", "C", "3 sets × 5–6, one step less help than Phase 2. Move down a step once 3 × 6 feels clean.")
+             + card("inverted-row", "D", "3 sets × 10, legs straight, with a 2-second pause at the top"))
 pages.append(header("Phase 3 · Weeks 9–12", "Your first pull-up, continued")
-             + card("inverted-row", "E", "3 sets × 10, legs straight, with a 2-second pause at the top")
-             + card("flexed-arm-hang", "F", "2 sets × 20–30 seconds")
+             + card("flexed-arm-hang", "E", "2 sets × 20–30 seconds")
+             + card("hollow-body", "F", "3 sets × 30 seconds, working toward the full position")
              + gate(["a 30-second flexed-arm hang", "a slow negative taking 8–10 seconds, with control",
                      "3 × 6 band-assisted pull-ups with your lightest band, knee in the loop", "a 30-second full hollow hold"],
                     "Ready for test day when you can do:")
@@ -424,6 +426,7 @@ pages.append(header("Track your progress", "Progress log",
     <li>Face-down (prone) exercises target the middle and lower trapezius with little upper-trapezius (shrugging) activity. <span>Cools AM et al. Am J Sports Med 2007;35(10):1744-51. doi:10.1177/0363546507303560</span></li>
     <li>Wall slides activate the serratus anterior, and push-up "plus" variations favour serratus over upper trapezius. <span>Castelein B et al. J Orthop Sports Phys Ther 2016;46(3):184-93. doi:10.2519/jospt.2016.5927 · Maenhout A et al. Br J Sports Med 2010;44(14):1010-5. doi:10.1136/bjsm.2009.062810</span></li>
     <li>Gently tightening the abdominals increased serratus and trapezius activity during wall slides. This supports the "ribs down, zip up" cue. <span>Vega Toro AS et al. Man Ther 2016;25:11-8. doi:10.1016/j.math.2016.05.331</span></li>
+    <li>Exercises done earlier in a session get more reps and bigger strength gains, so the priority exercise goes first and bigger multi-joint moves come before smaller single-joint ones. <span>Simão R et al. Sports Med 2012;42(3):251-65. doi:10.2165/11597240-000000000-00000 · ACSM position stand. Med Sci Sports Exerc 2009;41(3):687-708. doi:10.1249/MSS.0b013e3181915670</span></li>
     <li>Eccentric (lowering) training gives strong strength gains, which is why negatives are used in Phases 2–3. <span>Douglas J et al. Sports Med 2017;47(5):917-41. doi:10.1007/s40279-016-0628-4</span></li>
   </ul>
   <p class="small">References sourced via PubMed. This program is general education prepared by {CLINIC}. It does not replace an individual assessment. Talk to your physiotherapist before starting if you have had shoulder surgery, a dislocation or ongoing neck or shoulder pain.</p>
