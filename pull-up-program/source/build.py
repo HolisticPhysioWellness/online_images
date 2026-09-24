@@ -155,6 +155,7 @@ CAPS = {
     "flexed-arm-hang": ("Step up", "Hold, chin over the bar"),
     "negative-pull-up": ("① Start: chin over the bar, feet off the box", "② Lower until your arms are straight"),
     "pull-up": ("Hang", "Pull"),
+    "band-assisted-pull-up": ("Start: knee in the loop, arms straight", "Finish: chin over the bar"),
 }
 
 
