@@ -42,10 +42,10 @@ ex("band-pull-aparts", "Band pull-aparts", "2 sets × 12–15",
    easier="Use a lighter band or start with your hands wider apart.")
 
 ex("scapular-push-ups", "Scapular push-ups", "2 sets × 10",
-   ["Start on your hands and knees (or on your toes), with your hands under your shoulders and your arms straight.",
+   ["Start on your hands and knees, with your hands under your shoulders and your arms straight.",
     "Keeping your elbows straight, let your chest sink between your shoulder blades.",
     "Push the floor away to spread your shoulder blades apart. Only your shoulder blades move."],
-   harder="Do these from your toes in a full plank.")
+   harder="Do these from your knees in a kneeling plank, then from your toes.")
 
 ex("dead-bug", "Dead bug", "2 sets × 6 each side",
    ["Lie on your back with your arms pointing to the ceiling and your hips and knees at 90°.",
@@ -67,10 +67,10 @@ ex("band-lat-pulldown", "Band lat pull-down", "3 sets × 10–12",
     "Squeeze for 1 second, then return over 2 seconds without shrugging."],
    harder="Use a heavier band, or pause for 3 seconds at the bottom.")
 
-ex("inverted-row", "Inverted table row", "3 sets × 6–10",
-   ["First check that the table is heavy and will not tip. Have someone sit on it if you are unsure. A low bar at the gym also works.",
-    "Lie under the edge and grip it with your hands shoulder-width apart. Keep your body straight from ears to ankles and squeeze your glutes.",
-    "Pull your chest to the edge, elbows angled toward your ribs. Pause for 1 second, then lower over 3 seconds."],
+ex("inverted-row", "Inverted row", "3 sets × 6–10",
+   ["Set a sturdy bar at about hip height (a Smith machine or rack bar at the gym). At home, the edge of a heavy table works: check that it cannot tip.",
+    "Lie under the bar and grip it with your hands shoulder-width apart. Keep your body straight from ears to ankles and squeeze your glutes.",
+    "Pull your chest to the bar, elbows angled toward your ribs. Pause for 1 second, then lower over 3 seconds."],
    easier="Bend your knees with your feet flat.", harder="Straighten your legs, or add a 3-second pause at the top.")
 
 ex("prone-y-raise", "Prone Y raise", "2 sets × 10, 2-second hold",
@@ -135,7 +135,15 @@ def aspect(svg):
     return float(vb[2]) / float(vb[3])
 
 
+def photo(key):
+    p = os.path.join(HERE, "photos", f"{key}.jpg")
+    return f"photos/{key}.jpg" if os.path.exists(p) else None
+
+
 def imgs(key, cls="pair"):
+    ph = photo(key)
+    if ph:
+        return f'<div class="photo"><img src="{ph}" alt=""></div>'
     ps = load(key)
     return f'<div class="{cls}">' + "".join(f'<div class="fig">{p}</div>' for p in ps) + "</div>"
 
@@ -151,6 +159,15 @@ def card(key, num=None, dose=None):
     if e["harder"]:
         extra += f'<p class="note"><b>Harder:</b> {e["harder"]}</p>'
     n = f'<span class="num">{num}</span>' if num else ""
+    if photo(e["img"]):
+        return f'''<section class="card photo-card">
+  {imgs(e["img"])}
+  <div class="txt">
+    <h3>{n}{e["title"]}</h3>
+    <div class="dose">{dose or e["dose"]}</div>
+    <ol>{steps}</ol>{extra}
+  </div>
+</section>'''
     wide = aspect(load(e["img"])[0]) >= 1.25
     if wide:
         return f'''<section class="card wide">
@@ -172,7 +189,7 @@ def card(key, num=None, dose=None):
 
 def header(kicker, title, sub=""):
     return f'''<header class="ph">
-  <div class="brand"><div class="logo" aria-label="clinic logo">HP</div><div>{CLINIC}</div></div>
+  <div class="brand"><img src="assets/logo.png" alt="Holistic Physiotherapy &amp; Wellness logo"><div class="wordmark"><span class="w1">HOLISTIC</span><span class="w2">Physiotherapy &amp; Wellness</span></div></div>
   <div class="kicker">{kicker}</div>
 </header>
 <h2 class="ptitle">{title}</h2>{f'<p class="psub">{sub}</p>' if sub else ''}'''
@@ -204,7 +221,7 @@ pages = []
 # 1 - overview
 pages.append(f'''
 <header class="ph">
-  <div class="brand"><div class="logo">HP</div><div>{CLINIC}</div></div>
+  <div class="brand"><img src="assets/logo.png" alt="Holistic Physiotherapy &amp; Wellness logo"><div class="wordmark"><span class="w1">HOLISTIC</span><span class="w2">Physiotherapy &amp; Wellness</span></div></div>
   <div class="kicker">Home exercise program</div>
 </header>
 <div class="hero">
@@ -216,7 +233,7 @@ pages.append(f'''
       <div><span>Start date</span></div><div><span>Target test date</span></div>
     </div>
   </div>
-  <div class="herofig">{load("pull-up")[1]}</div>
+  <div class="herofig">{('<img src="photos/pull-up.jpg" alt="">' if photo("pull-up") else load("pull-up")[1])}</div>
 </div>
 
 <div class="grid3">
@@ -303,31 +320,31 @@ pages.append(header("Warm-up, continued", "Warm-up")
 # Phase 1
 p1_sum = summary([("Scapular pull-ups + active hang", "3 × 5–8 (2-second hold), then 2 × 15–30 s hang"),
                   ("Band lat pull-down", "3 × 10–12"), ("Prone Y raise", "2 × 10 (2-second hold)"),
-                  ("Inverted table row", "3 × 6–10"), ("Hollow body hold (tucked)", "3 × 15–30 s")])
+                  ("Inverted row", "3 × 6–10"), ("Hollow body hold (tucked)", "3 × 15–30 s")])
 pages.append(header("Phase 1 · Weeks 1–4", "Foundation",
                      "Build shoulder blade control, grip endurance and basic pulling strength.")
              + p1_sum + card("scapular-pull-ups", "A") + card("band-lat-pulldown", "B") + card("prone-y-raise", "C"))
 pages.append(header("Phase 1 · Weeks 1–4", "Foundation, continued")
              + card("inverted-row", "D") + card("hollow-body", "E"))
 pages[-1] += gate(["3 × 8 scapular pull-ups with 2-second holds", "a 30-second active hang",
-                   "3 × 10 table rows", "a 30-second tucked hollow hold"])
+                   "3 × 10 inverted rows", "a 30-second tucked hollow hold"])
 
 # Phase 2
 p2_sum = summary([("Band-assisted pull-up", "3 × 4–6"), ("Flexed-arm hang", "3 × 10–20 s"),
-                  ("Negative pull-up", "3 × 3 (3–5 s lower)"), ("Inverted table row, legs straight", "3 × 8–10"),
+                  ("Negative pull-up", "3 × 3 (3–5 s lower)"), ("Inverted row, legs straight", "3 × 8–10"),
                   ("Hollow body hold, legs straighter", "3 × 20–30 s")])
 pages.append(header("Phase 2 · Weeks 5–8", "Build the pull",
                      "Practise the whole pull-up path with help from a band, and build strength at the top and on the way down.")
              + p2_sum + card("band-assisted-pull-up", "A") + card("flexed-arm-hang", "B"))
 pages.append(header("Phase 2 · Weeks 5–8", "Build the pull, continued")
              + card("negative-pull-up", "C")
-             + '<div class="finish"><b>D · Inverted table row</b> 3 × 8–10 with legs straight (page 6). &nbsp; <b>E · Hollow body hold</b> 3 × 20–30 s, straighten your legs as you are able (page 6).</div>'
+             + '<div class="finish"><b>D · Inverted row</b> 3 × 8–10 with legs straight (page 6). &nbsp; <b>E · Hollow body hold</b> 3 × 20–30 s, straighten your legs as you are able (page 6).</div>'
              + gate(["a 20-second flexed-arm hang", "3 × 3 negatives, lowering over 5 seconds",
                      "3 × 6 band-assisted pull-ups with a medium band"]))
 
 # Phase 3
 p3_sum = summary([("Pull-up attempts", "3–5 singles, 2–3 min rest"), ("Slow negatives with pauses", "3 × 2 (6–8 s lower)"),
-                  ("Light band-assisted pull-up", "3 × 5–6"), ("Inverted table row", "3 × 10"),
+                  ("Light band-assisted pull-up", "3 × 5–6"), ("Inverted row", "3 × 10"),
                   ("Hollow body hold (full)", "3 × 30 s")])
 pages.append(header("Phase 3 · Weeks 9–12", "Your first pull-up",
                      "Less help, more control. Keep every rep clean. Grinding out ugly reps won't get you there faster.")
@@ -335,7 +352,7 @@ pages.append(header("Phase 3 · Weeks 9–12", "Your first pull-up",
 pages.append(header("Phase 3 · Weeks 9–12", "Your first pull-up, continued")
              + card("band-assisted-pull-up", "C", "3 sets × 5–6 with your lightest band. Go down a band every 1–2 weeks.")
              + card("hollow-body", "D", "3 sets × 30 seconds, working toward the full position")
-             + '<div class="finish"><b>E · Inverted table row</b> 3 × 10 with legs straight (page 6). &nbsp; <b>Next goal after your first pull-up:</b> 3 sets of 1–2 reps, then work toward 3 reps in a row.</div>')
+             + '<div class="finish"><b>E · Inverted row</b> 3 × 10 with legs straight (page 6). &nbsp; <b>Next goal after your first pull-up:</b> 3 sets of 1–2 reps, then work toward 3 reps in a row.</div>')
 
 # Log + references
 rows = "".join(f"<tr><td>{w}</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>" for w in range(1, 13))
@@ -358,7 +375,7 @@ pages.append(header("Track your progress", "Progress log",
 </div>''')
 
 CSS = open(os.path.join(HERE, "handout.css")).read()
-FONTS = open(os.path.join(HERE, "fonts.css")).read()
+FONTS = open(os.path.join(HERE, "fonts2.css")).read()
 doc = ["<!doctype html><html lang='en'><head><meta charset='utf-8'><title>Road to Your First Pull-Up</title>",
        f"<style>{FONTS}\n{CSS}</style></head><body>"]
 for i, p in enumerate(pages, 1):
