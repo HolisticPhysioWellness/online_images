@@ -26,7 +26,7 @@
 | Warm neutral (print) | Stone Taupe | #C8BFB3 |
 
 - Fonts: Montserrat Bold/Semi-Bold for headings; Montserrat Regular/Light for body text; Raleway Medium Italic for accents and quotes; Brittney (the logo script) sparingly.
-- Logo: the watercolour tree in a gold double circle, with "HOLISTIC" in a serif and "Physiotherapy & Wellness" in script. The mark is at `pull-up-program/source/assets/logo.png`. Rebuild the horizontal lockup with Cinzel + a script font (Great Vibes stands in for Brittney).
+- Logo: use the official horizontal logo file `pull-up-program/source/assets/logo-horizontal.png` (the tree in a gold double circle, with HOLISTIC and *Physiotherapy & Wellness* in script). Never rebuild the wordmark with fonts. Canva's brand kit also holds a 10th Anniversary version; use it only when asked.
 - Digital: teals + Primary Gold. Print: Rich Charcoal Black on Soft White for contrast.
 
 ## Existing work

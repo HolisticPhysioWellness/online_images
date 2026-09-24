@@ -37,11 +37,11 @@ body { font-family: var(--font-body); color: var(--text); font-size: 9.4pt; line
 .ph { display: flex; justify-content: space-between; align-items: center; margin-top: -4px;
       border-bottom: 2px solid var(--gold); padding-bottom: 7px; margin-bottom: 12px; }
 .brand { display: flex; align-items: center; gap: 8px; }
-.brand img { height: 40px; width: auto; }
+.brand img { height: 46px; width: auto; }
 .wordmark { display: flex; flex-direction: column; line-height: 1; color: var(--black); }
 .wordmark .w1 { font-family: 'Cinzel', serif; font-size: 15pt; letter-spacing: .08em; }
 .wordmark .w2 { font-family: 'Great Vibes', cursive; font-size: 12.5pt; margin-top: 1px; padding-left: 6px; }
-.cover .brand img { height: 58px; }
+.cover .brand img { height: 70px; }
 .cover .wordmark .w1 { font-size: 21pt; }
 .cover .wordmark .w2 { font-size: 17pt; }
 .logo { width: 30px; height: 30px; border-radius: 50%; background: var(--brand-blush); color: var(--brand-ink);

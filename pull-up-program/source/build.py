@@ -219,7 +219,7 @@ def card(key, num=None, dose=None):
 
 def header(kicker, title, sub=""):
     return f'''<header class="ph">
-  <div class="brand"><img src="assets/logo.png" alt="Holistic Physiotherapy &amp; Wellness logo"><div class="wordmark"><span class="w1">HOLISTIC</span><span class="w2">Physiotherapy &amp; Wellness</span></div></div>
+  <div class="brand"><img src="assets/logo-horizontal.png" alt="Holistic Physiotherapy &amp; Wellness"></div>
   <div class="kicker">{kicker}</div>
 </header>
 <h2 class="ptitle">{title}</h2>{f'<p class="psub">{sub}</p>' if sub else ''}'''
@@ -251,7 +251,7 @@ pages = []
 # 1 - overview
 pages.append(f'''
 <header class="ph">
-  <div class="brand"><img src="assets/logo.png" alt="Holistic Physiotherapy &amp; Wellness logo"><div class="wordmark"><span class="w1">HOLISTIC</span><span class="w2">Physiotherapy &amp; Wellness</span></div></div>
+  <div class="brand"><img src="assets/logo-horizontal.png" alt="Holistic Physiotherapy &amp; Wellness"></div>
   <div class="kicker">Home exercise program</div>
 </header>
 <div class="hero">
