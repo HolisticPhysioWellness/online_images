@@ -145,7 +145,7 @@ def photo(key):
 
 
 CAPS = {
-    "wall-angels": ("Start: goalpost", "Finish: slide up to a Y"),
+    "wall-angels": ("Goalpost: breathe out as you lower", "Y: breathe in as you slide up"),
     "wall-angels-ribs": ("✓ Ribs down, back near the wall", "✗ Ribs flare, low back arches"),
     "90-90-breathing": ("Breathe in", "Breathe out: ribs down"),
     "cat-camel": ("Round up", "Let your back sag"),
@@ -318,8 +318,8 @@ pages.append(header("Daily posture exercise", "Wall angels",
     </ol>
     <h4>Move</h4>
     <ol start="4">
-      <li>Slowly slide your arms up into a "Y". Stop where your ribs start to lift or your arms leave the wall.</li>
-      <li>Pause for 2 seconds and breathe out. Then slide down, drawing your elbows toward your back pockets.</li>
+      <li><b>Breathe in</b> through your nose as you slowly slide your arms up into a "Y". Stop where your ribs start to lift or your arms leave the wall.</li>
+      <li><b>Breathe out</b> through your mouth as you slide your arms back down, drawing your elbows toward your back pockets.</li>
     </ol>
   </div>
 </div>
@@ -328,14 +328,15 @@ pages.append(header("Daily posture exercise", "Wall angels",
   <div class="txt">
     <h4 class="accent">Keep your ribs down: stop them flaring</h4>
     <ul class="checks">
-      <li><b>Breathe out first.</b> Before each rep, breathe out fully through your mouth and feel your lower ribs soften down toward your hips. Keep them there as your arms rise.</li>
+      <li><b>Breathe in wide, not up.</b> As your arms rise, let the breath widen your sides and back ribs instead of lifting your chest. Your lower ribs stay down toward your hips.</li>
+      <li><b>Breathe out to reset.</b> As your arms lower, breathe out fully and feel your lower ribs soften down again before the next rep.</li>
       <li><b>Zip up gently.</b> Tighten your lower tummy to about 20–30% effort. That's just enough to stop your ribs popping forward, not a hard brace.</li>
       <li><b>Keep the low-back gap small.</b> A flat hand should just fit behind your low back. If the gap grows as your arms go up, you've gone too high.</li>
       <li><b>Keep your chin gently tucked</b> and the back of your head on the wall. Don't let your chin poke up.</li>
       <li><b>Work within your range.</b> Your hands don't have to touch the wall at the top. Ribs down matters more than height.</li>
     </ul>
     <p class="note"><b>Easier:</b> step your feet further from the wall and bend your knees more, or do the same movement lying on your back with your knees bent ("floor angels").<br>
-    <b>Harder:</b> hold the top "Y" for a 5-second breath out before sliding down.</p>
+    <b>Harder:</b> slow it down to a 4-second breath in on the way up and a 6-second breath out on the way down.</p>
   </div>
 </div>''')
 
